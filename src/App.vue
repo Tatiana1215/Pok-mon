@@ -4,7 +4,7 @@
 
   <div >
     <div id="fondo">
-    <div id="cambioColores" style="width: 100vw; height: 100vh;">
+    <div id="cambioColores">
     <div v-if="showBuscar" id="Titulo">
       <img src="./img/TituloPokemon.png" alt="">
     </div>
@@ -96,7 +96,7 @@
        
 
         <div class="habilidad" v-show="estadisticaHabilidad1">
-          <p >HP: </p>
+          <p >HP</p>
             <q-circular-progress
               show-value
               font-size="20px"
@@ -112,7 +112,7 @@
          </div>
       
           <div class="habilidad" v-show="estadisticaHabilidad2">
-          <p >ATTACK:</p>
+          <p >ATTACK</p>
             <q-circular-progress
               show-value
               font-size="20px"
@@ -144,7 +144,7 @@
 </div>
 
 <div class="habilidad" v-show="estadisticaHabilidad4">
-  <p >SPECIAL <br> ATTACK:</p>
+  <p >SPECIAL <br> ATTACK</p>
   <q-circular-progress
     show-value
     font-size="20px"
@@ -162,7 +162,7 @@
       
 
        <div class="habilidad"v-show="estadisticaHabilidad5">
-          <p >SPECIAL <br> DEFENSE:</p>
+          <p >SPECIAL <br> DEFENSE</p>
             <q-circular-progress
               show-value
               font-size="20px"
@@ -179,7 +179,7 @@
        
 
        <div class="habilidad"v-show="estadisticaHabilidad6">
-          <p >SPEED:</p>
+          <p >SPEED</p>
             <q-circular-progress
               show-value
               font-size="20px"
@@ -417,7 +417,10 @@ buscadorXcategoria()
   font-weight: 900;
   font-size: 20px;
 }
-
+#cambiaColores{
+  width: 100%; 
+  height: 1000vh
+}
 #Titulo img{
 margin-left: 65%;
   width: 30%;
@@ -535,6 +538,7 @@ right: 55%;
   /* margin-bottom: 2%; */
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 1.3%;
   justify-content: center;
   width: 90%;
 }
@@ -556,7 +560,7 @@ right: 55%;
 .habilidad p {
   padding: 0px;
   margin: 0;
-line-height: 4vh;
+line-height: 6vh;
  
 }
 
@@ -644,7 +648,11 @@ margin-left: 10%;
 #Habilidades{
   display: grid;
   grid-template-columns: repeat(2,1fr);
+} 
+#cambioColores{
+/* height: 800vh; */
 }
+
 }
 @media screen and (max-width:800px) and (min-width:500px){
   /* #Contenedor {
@@ -671,6 +679,7 @@ justify-content: center;
   }
 #Contenedor {
 grid-template-columns: repeat(2, 1fr);
+padding: 5%;
 
 
  }
