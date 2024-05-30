@@ -3,7 +3,7 @@
 <template>
 
   <div >
-    
+    <div id="fondo">
     <div id="cambioColores" style="width: 100vw; height: 100vh;">
     <div v-if="showBuscar" id="Titulo">
       <img src="./img/TituloPokemon.png" alt="">
@@ -205,6 +205,7 @@
     </div>
   </div>
 </div>
+</div>
 
 
 </template>
@@ -391,7 +392,7 @@ buscadorXcategoria()
   padding: 0px;
   box-sizing: 0px;
 }
-body{
+#fondo{
   background-image: url(./src/img/pokemon.png);
   background-size: 100% 100vh;
   background-repeat: no-repeat;
