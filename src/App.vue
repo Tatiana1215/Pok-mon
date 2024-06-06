@@ -200,8 +200,7 @@
               {{ estadisticaHabilidad6 }}%
             </q-circular-progress>
           </div>
-    
-
+    <img src="./assets//pokemon.png" alt="">
         <!-- <p>{{ pokemonHabilidad7 }}:</p> -->
       </div>
     </div>
