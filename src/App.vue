@@ -200,7 +200,8 @@
               {{ estadisticaHabilidad6 }}%
             </q-circular-progress>
           </div>
-    <img src="./assets//pokemon.png" alt="">
+    
+
         <!-- <p>{{ pokemonHabilidad7 }}:</p> -->
       </div>
     </div>
@@ -403,7 +404,8 @@ buscadorXcategoria()
   box-sizing: 0px;
 }
 #fondo{
-  background-image: url("./src/assets/pokemon.png");
+  /* background-image: url("/assets/src/img/pokemon.png"); */
+  background-image: url("./assets/pokemon.png");
   background-size: 100% 100vh;
   height: 100vh;
   background-repeat: no-repeat;
