@@ -4,6 +4,7 @@
 
   <div >
     <div id="fondo">
+      
     <div id="cambioColores">
     <div v-if="showBuscar" id="Titulo">
       <img src="./img/TituloPokemon.png" alt="">
@@ -39,11 +40,17 @@
 
  
       <div v-if="showBuscador" id="Buscador">
+         <a href="fondo" v-if="showinicio" @click="Inicio" id="inicio" >
+          <div class="q-pa-md q-gutter-sm" >
+            <q-breadcrumbs-el label="Home" icon="home" />
+    </div>
+         </a>
         <input type="search" name="" v-model="id"
          placeholder="Ingrese el Id del Pokémon o el Nombre"id="CaJadeTextodeBusquedaPokemon"  />
          <div >
            <button  id="boton" @click="Buscar" > <i class="fa fa-search" ></i></button>
          </div>
+ 
       </div>
 
      <div id="Contenedor">
@@ -193,8 +200,7 @@
               {{ estadisticaHabilidad6 }}%
             </q-circular-progress>
           </div>
-       
-
+    
 
         <!-- <p>{{ pokemonHabilidad7 }}:</p> -->
       </div>
@@ -231,19 +237,23 @@ let estadisticaHabilidad5 = ref("");
 let estadisticaHabilidad6 = ref("");
 let  showBuscador = ref(false);
 let showBuscar =ref(true);
+let showinicio = ref(true);
 let alerta1 = ref("");
 let alerta2 = ref("");
 
 
 function BuscarPokemon(){
-  showBuscador.value= !showBuscador.value
+  showBuscador.value= !showBuscador.value ;
+  showinicio.value=false;
 }
+
 
 async function Buscar() {
   if(alert()){
     return;
   }
-  showBuscar.value= false
+  showBuscar.value= false;
+     showinicio.value=true;
   // alert("You clicked the button!");
   
   let Pokemon = await axios.get(
@@ -384,6 +394,7 @@ buscadorXcategoria()
     return false
 
   }
+  
 </script>
 
 <style>
@@ -395,6 +406,7 @@ buscadorXcategoria()
 #fondo{
   background-image: url("./src/img/pokemon.png");
   background-size: 100% 100vh;
+  height: 100vh;
   background-repeat: no-repeat;
 }
 
@@ -464,6 +476,23 @@ margin-left: 65%;
 /* border-bottom: 3px solid red; */
 /* border-color: blue; */
 outline-color:red; 
+}
+
+#inicio{
+  display: flex;
+  font-size:25px;
+  font-weight: 900;
+ text-decoration: none;
+color:black;
+/* background-color: black; */
+padding: 8px;
+border-radius: 30%;
+text-align: center;
+justify-content: center;
+align-items: center;
+
+ 
+
 }
 
 /* #Buscador input:hover {
@@ -679,7 +708,7 @@ justify-content: center;
   }
 #Contenedor {
 grid-template-columns: repeat(2, 1fr);
-padding: 5%;
+padding: 4%;
 
 
  }
