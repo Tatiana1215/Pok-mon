@@ -404,7 +404,7 @@ buscadorXcategoria()
   box-sizing: 0px;
 }
 #fondo{
-  background-image: url("./src/img/pokemon.png");
+  background-image: url("./src/assets/pokemon.png");
   background-size: 100% 100vh;
   height: 100vh;
   background-repeat: no-repeat;
