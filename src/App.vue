@@ -5,7 +5,7 @@
   <div >
     <div id="fondo">
       
-    <div id="cambioColores">
+    <div id="cambioColores" style="  height: 100vh;">
     <div v-if="showBuscar" id="Titulo">
       <img src="./img/TituloPokemon.png" alt="">
     </div>
@@ -57,12 +57,12 @@
     
   <div id="contenedorDatosPrincipales">
           <div id="Categoria">
-            <h5>{{ pokemonCategoria1 }}</h5>
-            <h5>{{ pokemonCategoria2 }}</h5>
+            <h5 >{{ pokemonCategoria1 }}</h5>
+            <h5 >{{ pokemonCategoria2 }}</h5>
           </div>
           <div id="AlturaPeso">
-          <p v-show="pokemonAltura"><b>Altura:</b> {{ pokemonAltura }}</p>
-          <p v-show="pokemonPeso"><b>Peso:</b> {{ pokemonPeso }}</p><br><br><br>
+          <p v-show="pokemonAltura" ><b>Altura:</b> {{ pokemonAltura }}</p>
+          <p v-show="pokemonPeso" ><b>Peso:</b> {{ pokemonPeso }}</p><br><br><br>
       </div>
         <div v-show="pokemonId" id="idPokemon">
           <h4 >{{ "#" + pokemonId }}</h4>
@@ -77,7 +77,7 @@
       
           <img :src="img2Pokemon" alt="" />       
   <div>
-          <h2>{{ pokemonName }}</h2>
+          <h2 >{{ pokemonName }}</h2>
          <!-- <div class="Sonido"> -->
           <!-- <q-circular-progress
             show-value
@@ -238,6 +238,7 @@ let estadisticaHabilidad6 = ref("");
 let  showBuscador = ref(false);
 let showBuscar =ref(true);
 let showinicio = ref(true);
+// let showinicio = ref(false);
 let alerta1 = ref("");
 let alerta2 = ref("");
 
@@ -298,7 +299,7 @@ async function Buscar() {
   // pokemonSonido.value = Pokemon.data.cries.legacy
 CategoriaxColorcomparacion()
 buscadorXcategoria()
-
+colorPalabra()
 
 } 
 
@@ -312,25 +313,47 @@ buscadorXcategoria()
   }
 
   let CategoriaxColor ={
-    normal: "#A8A878",
-    fire: "#F08030",
-    water: "#6890F0",
-    electric: "#F8D030",
-    grass: "#78C850",
-    ice: "#98D8D8",
-    fighting: "#C03028",
-    poison: "#A040A0",
-    ground: "#E0C068",
-    flying: "#A890F0",
-    psychic: "#F85888",
-    bug: "#A8B820",
-    rock: "#B8A038",
-    ghost: "#705898",
-    dragon: "#7038F8",
-    dark: "#705848",
-    steel: "#B8B8D0",
-    fairy: "#EE99AC",
+
+
+  // normal: "#D3D3D3",    // Gris claro
+  // fire: "#FFCC99",      // Naranja medio
+  // water: "#ADD8E6",     // Azul claro
+  // electric: "#FFFF99",  // Amarillo pálido
+  // grass: "#90EE90",     // Verde claro
+  // ice: "#B0E0E6",       // Azul pálido
+  // fighting: "#FFB6C1",  // Rosa claro
+  // poison: "#DDA0DD",    // Lavanda
+  // ground: "#F0E68C",    // Amarillo claro
+  // flying: "#87CEEB",    // Azul cielo
+  // psychic: "#FF69B4",   // Rosa brillante
+  // bug: "#98FB98",       // Verde pálido
+  // rock: "#C0C0C0",      // Gris plateado
+  // ghost: "#9370DB",     // Púrpura medio
+  // dragon: "#87CEFA",    // Azul cielo claro
+  // dark: "#A9A9A9",      // Gris oscuro
+  // steel: "#D3D3D3",     // Gris claro
+  // fairy: "#FFB6C1"      // Rosa claro
+
+  normal: "#B0B0B0",    // Gris
+  fire: "#E69A7A",      // Naranja claro
+  water: "#7FAFFF",     // Azul claro
+  electric: "#FFEE88",  // Amarillo claro
+  grass: "#9CCC65",     // Verde claro
+  ice: "#AEC6CF",       // Azul pálido
+  fighting: "#D67873",  // Rojo claro
+  poison: "#C183C1",    // Morado claro
+  ground: "#E0C068",    // Amarillo oscuro
+  flying: "#A6CDE6",    // Azul claro
+  psychic: "#FA92B2",   // Rosa claro
+  bug: "#C6D16E",       // Verde claro
+  rock: "#C0C0C0",      // Gris plateado
+  ghost: "#9370DB", 
+  dragon: "#7038F8",    // Azul oscuro
+  dark: "#7C6A5A",      // Marrón grisáceo
+  steel: "#B8B8D0",     // Gris claro
+  fairy: "#F9AEFF"      // Rosa claro
   }
+
   function CategoriaxColorcomparacion(){
     let color= CategoriaxColor[pokemonCategoria1.value]
     cambioColores.style.backgroundColor=color
@@ -358,24 +381,38 @@ buscadorXcategoria()
   function buscadorXcategoria(){
     let color= buscadorXcategorias[pokemonCategoria1.value]
     boton.style.backgroundColor=color;
-    // input.style.outlineColor=color;
     CaJadeTextodeBusquedaPokemon.style.outlineColor = color;
-    // #Buscador input{
-//   border-radius: 20px;
-//   height: 40px;
-//   width: 30%;
-//   position: relative;
-//   left: 1.5%;
-//   font-size: 20px;
-
-// /* border-bottom: 3px solid red; */
-// /* border-color: blue; */
-// outline-color:red; 
-// }
   }
   
 
-
+  let colorPalabras={
+    normal: "#000000",
+    fire: "#000000",
+    water: "#000000",
+    electric: "#000000",
+    grass: "#000000",
+    ice: "#000000",
+    // fighting: "#FFFFFF",
+    // poison: "#FFFFFF",
+    ground: "#000000",
+    flying: "#000000",
+    psychic: "#000000",
+    bug: "#000000",
+    rock: "#000000",
+    ghost: "#000000",
+    dragon: "#F8B838",
+    dark: "#FFFFFF",
+    steel: "#000000",
+    fairy: "#000000",
+  }
+  function colorPalabra(){
+   
+    let color = colorPalabras[pokemonCategoria1.value];
+  // document.querySelectorAll('#Contenedor, #Contenedor *').forEach(el => {
+  //   el.style.color = color;
+  // });
+  document.getElementById('Contenedor').style.color = color
+  }
   function alert(){
     // var id = document.getElementById("id");
     if(id.value === "" || id.value == 0){
@@ -403,9 +440,8 @@ buscadorXcategoria()
   padding: 0px;
   box-sizing: 0px;
 }
-#fondo{
-  /* background-image: url("/assets/src/img/pokemon.png"); */
-  background-image: url("./assets/pokemon.png");
+#fondo {
+  background-image: url("https://images2.alphacoders.com/135/1351279.png");
   background-size: 100% 100vh;
   height: 100vh;
   background-repeat: no-repeat;
@@ -432,7 +468,9 @@ buscadorXcategoria()
 }
 #cambiaColores{
   width: 100%; 
-  height: 1000vh
+  height: 100vh;
+ 
+  
 }
 #Titulo img{
 margin-left: 65%;
@@ -470,6 +508,7 @@ margin-left: 65%;
   border-radius: 20px;
   height: 40px;
   width: 30%;
+  padding-left: 1%;
   position: relative;
   left: 1.5%;
   font-size: 20px;
@@ -509,7 +548,7 @@ align-items: center;
   outline: none;
 border: none;
 position: relative;
-right: 55%;
+right: 50%;
   transition: .5s;
 }
 #boton i{
@@ -570,7 +609,7 @@ right: 55%;
   margin-right: auto;
   padding-bottom: 1.3%;
   justify-content: center;
-  width: 90%;
+  width: 80%;
 }
 
 #Habilidades{
@@ -590,7 +629,7 @@ right: 55%;
 .habilidad p {
   padding: 0px;
   margin: 0;
-line-height: 6vh;
+/* line-height: 6vh; */
  
 }
 
@@ -611,6 +650,9 @@ line-height: 6vh;
    font-family: tatis;
   font-size: 80px;
 }
+#contenedorPokemon img {
+  width: 80%;
+}
 
 
 
@@ -628,10 +670,7 @@ line-height: 6vh;
   font-family: letra2;
   src: url("./Heyam.ttf");
 }
-@font-face {
-  font-family: letra3;
-  src: url("./le.ttf");
-}
+
 @font-face {
   font-family: letra4;
   src: url("./fFaseBulan.ttf");
@@ -640,7 +679,7 @@ line-height: 6vh;
   font-family: letra5;
   src: url("./LittleGroovyDemoRegular.ttf");
 }
-@media screen and (max-width:425px){
+@media screen and (max-width:520px){
   
 .alert{
   width: 80%;
@@ -665,6 +704,7 @@ margin-left: 10%;
 #Contenedor {
  display: grid;
  grid-template-columns: repeat(1,1fr);
+ gap: 30px;
  width: 100%;
  margin-top: 10%;
 
@@ -684,7 +724,7 @@ margin-left: 10%;
 }
 
 }
-@media screen and (max-width:800px) and (min-width:500px){
+@media screen and (max-width:1032px) and (min-width:530px){
   /* #Contenedor {
  display: grid;
  grid-template-columns: repeat(2,1fr);
@@ -694,11 +734,17 @@ justify-content: center;
   #Habilidades{
    position: relative;
    left: 30%;
-   top:5%;
-   transition: transform(-50% -50%);
-
-    
+   top:20%;
+   transition: transform(-50% -50%);  
   } 
+#contenedorPokemon h2{
+  font-size: 70px
+}
+#tituloPokemon h3{
+   font-family: tatis;
+  font-size: 50px;
+}
+
   #contenedorPokemon{
    position: relative;
    right: 30%;
@@ -710,8 +756,6 @@ justify-content: center;
 #Contenedor {
 grid-template-columns: repeat(2, 1fr);
 padding: 4%;
-
-
  }
 .bi{
   width: 10%;
@@ -724,4 +768,14 @@ padding: 4%;
 }
 }
 
+@media screen and (max-width:2440px) and (min-width:1440px){
+  #Contenedor {
+padding-top:5%;
+ }
+ #boton{
+position: relative;
+right: 5%;
+
+}
+}
 </style>
