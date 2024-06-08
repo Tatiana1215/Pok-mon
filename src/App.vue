@@ -5,7 +5,7 @@
   <div >
     <div id="fondo">
       
-    <div id="cambioColores" style="  height: 100vh;">
+    <div id="cambioColores" style="height: 100%;">
     <div v-if="showBuscar" id="Titulo">
       <img src="./img/TituloPokemon.png" alt="">
     </div>
@@ -467,8 +467,8 @@ colorPalabra()
   font-size: 20px;
 }
 #cambiaColores{
-  width: 100%; 
-  height: 100vh;
+  /* width: 100%;  */
+  height: 100%;
  
   
 }
@@ -548,7 +548,7 @@ align-items: center;
   outline: none;
 border: none;
 position: relative;
-right: 50%;
+right: 55%;
   transition: .5s;
 }
 #boton i{
@@ -712,6 +712,7 @@ margin-left: 10%;
 #contenedorPokemon h2{
   font-size: 60px;
 }
+
 #contenedorPokemon img{
   width: 90%;
 }
@@ -719,9 +720,6 @@ margin-left: 10%;
   display: grid;
   grid-template-columns: repeat(2,1fr);
 } 
-#cambioColores{
-/* height: 800vh; */
-}
 
 }
 @media screen and (max-width:1032px) and (min-width:530px){
