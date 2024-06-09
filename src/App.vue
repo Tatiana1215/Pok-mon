@@ -1,8 +1,7 @@
 <template>
-
-  <div style=" width: 100%; height: 100%;" >
+  <div >
     
-      <div id="fondo" v-if="inicio" style=" width:100%; height: 100%;"  > 
+      <div id="fondo"  style=" width:100%; height: 100%;"  > 
     <div id="cambioColores" style=" width:100%; height: 100%;" >
      
     <div v-if="showBuscar" id="Titulo" >
@@ -191,7 +190,6 @@
   </div>
 </div>
 </div>
-
 
 </template>
 
@@ -692,4 +690,5 @@ padding-left: 1.5%;
     width:100% 
   }
 }
+
 </style>
