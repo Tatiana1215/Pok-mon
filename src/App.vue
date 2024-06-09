@@ -228,7 +228,6 @@ async function Buscar() {
   }
 
   showBuscar.value= false;
-  showinicio.value=true;
 
   let Pokemon = await axios.get(
     `https://pokeapi.co/api/v2/pokemon/${id.value}`
@@ -270,7 +269,7 @@ async function Buscar() {
 
 CategoriaxColorcomparacion()
 buscadorXcategoria()
-IralHome()
+
 
 } 
 
