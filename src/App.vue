@@ -1,12 +1,11 @@
-
-
 <template>
 
-  <div >
-    <div id="fondo">
-      
-    <div id="cambioColores" style="height: 100%;">
-    <div v-if="showBuscar" id="Titulo">
+  <div style=" width: 100%; height: 100%;" >
+    
+      <div id="fondo" v-if="inicio" style=" width:100%; height: 100%;"  > 
+    <div id="cambioColores" style=" width:100%; height: 100%;" >
+     
+    <div v-if="showBuscar" id="Titulo" >
       <img src="./img/TituloPokemon.png" alt="">
     </div>
     
@@ -57,17 +56,16 @@
     
   <div id="contenedorDatosPrincipales">
           <div id="Categoria">
-            <h5 >{{ pokemonCategoria1 }}</h5>
-            <h5 >{{ pokemonCategoria2 }}</h5>
+            <h5>{{ pokemonCategoria1 }}</h5>
+            <h5>{{ pokemonCategoria2 }}</h5>
           </div>
           <div id="AlturaPeso">
-          <p v-show="pokemonAltura" ><b>Altura:</b> {{ pokemonAltura }}</p>
-          <p v-show="pokemonPeso" ><b>Peso:</b> {{ pokemonPeso }}</p><br><br><br>
+          <p v-show="pokemonAltura" ><strong style="font-weight: bold;"> Altura: </strong>{{ pokemonAltura }}</p>
+          <p v-show="pokemonPeso"><b style="font-weight: bold;">Peso:</b> {{ pokemonPeso }}</p><br><br><br>
       </div>
         <div v-show="pokemonId" id="idPokemon">
           <h4 >{{ "#" + pokemonId }}</h4>
         </div> 
-
       </div>
      
    
@@ -77,22 +75,7 @@
       
           <img :src="img2Pokemon" alt="" />       
   <div>
-          <h2 >{{ pokemonName }}</h2>
-         <!-- <div class="Sonido"> -->
-          <!-- <q-circular-progress
-            show-value
-            font-size="60px"
-            class="text-red q-ma-md"
-            :value=100
-            size="100px"
-            :thickness="0.05"
-            color="red"
-            track-color="grey-3"
-          >
-            <q-icon name="volume_up"  @click="reproductor()"/>
-        
-          </q-circular-progress>
-        </div> -->
+          <h2>{{ pokemonName }}</h2>
         </div>
       </div>
  
@@ -200,12 +183,8 @@
               {{ estadisticaHabilidad6 }}%
             </q-circular-progress>
           </div>
-    
-
-        <!-- <p>{{ pokemonHabilidad7 }}:</p> -->
       </div>
     </div>
-    <div class="pie-chart"></div>
     <div v-if="showBuscar" id="Buscar">
       <button @click="BuscarPokemon">BUSCAR</button>
     </div>
@@ -220,7 +199,6 @@
 import axios from "axios";
 import { ref } from "vue";
 
-// let imgPokemon = ref("")
 let img2Pokemon = ref("");
 let id = ref("");
 let pokemonId = ref("");
@@ -237,8 +215,6 @@ let estadisticaHabilidad5 = ref("");
 let estadisticaHabilidad6 = ref("");
 let  showBuscador = ref(false);
 let showBuscar =ref(true);
-let showinicio = ref(true);
-// let showinicio = ref(false);
 let alerta1 = ref("");
 let alerta2 = ref("");
 
@@ -248,15 +224,14 @@ function BuscarPokemon(){
   showinicio.value=false;
 }
 
-
 async function Buscar() {
   if(alert()){
     return;
   }
+
   showBuscar.value= false;
-     showinicio.value=true;
-  // alert("You clicked the button!");
-  
+  showinicio.value=true;
+
   let Pokemon = await axios.get(
     `https://pokeapi.co/api/v2/pokemon/${id.value}`
   );
@@ -295,46 +270,14 @@ async function Buscar() {
   estadisticaHabilidad5.value = Pokemon.data.stats[4].base_stat;
   estadisticaHabilidad6.value = Pokemon.data.stats[5].base_stat;
 
-
-  // pokemonSonido.value = Pokemon.data.cries.legacy
 CategoriaxColorcomparacion()
 buscadorXcategoria()
-colorPalabra()
+IralHome()
 
 } 
 
- async function reproductor() {
-      let Pokemon = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id.value}` );
-   const pokemonSonido = Pokemon.data.cries.latest;
-    console.log(Pokemon.data.cries.latest);
-
-    const audio = new Audio(pokemonSonido);
-    audio.play();
-  }
-
   let CategoriaxColor ={
-
-
-  // normal: "#D3D3D3",    // Gris claro
-  // fire: "#FFCC99",      // Naranja medio
-  // water: "#ADD8E6",     // Azul claro
-  // electric: "#FFFF99",  // Amarillo pálido
-  // grass: "#90EE90",     // Verde claro
-  // ice: "#B0E0E6",       // Azul pálido
-  // fighting: "#FFB6C1",  // Rosa claro
-  // poison: "#DDA0DD",    // Lavanda
-  // ground: "#F0E68C",    // Amarillo claro
-  // flying: "#87CEEB",    // Azul cielo
-  // psychic: "#FF69B4",   // Rosa brillante
-  // bug: "#98FB98",       // Verde pálido
-  // rock: "#C0C0C0",      // Gris plateado
-  // ghost: "#9370DB",     // Púrpura medio
-  // dragon: "#87CEFA",    // Azul cielo claro
-  // dark: "#A9A9A9",      // Gris oscuro
-  // steel: "#D3D3D3",     // Gris claro
-  // fairy: "#FFB6C1"      // Rosa claro
-
-  normal: "#B0B0B0",    // Gris
+    normal: "#B0B0B0",    // Gris
   fire: "#E69A7A",      // Naranja claro
   water: "#7FAFFF",     // Azul claro
   electric: "#FFEE88",  // Amarillo claro
@@ -349,11 +292,11 @@ colorPalabra()
   rock: "#C0C0C0",      // Gris plateado
   ghost: "#9370DB", 
   dragon: "#7038F8",    // Azul oscuro
-  dark: "#7C6A5A",      // Marrón grisáceo
+  dark: "#A9A9A9",      // Gris oscuro
   steel: "#B8B8D0",     // Gris claro
   fairy: "#F9AEFF"      // Rosa claro
+  
   }
-
   function CategoriaxColorcomparacion(){
     let color= CategoriaxColor[pokemonCategoria1.value]
     cambioColores.style.backgroundColor=color
@@ -378,43 +321,14 @@ colorPalabra()
     steel: "#000000",
     fairy: "#000000",
   }
+
   function buscadorXcategoria(){
     let color= buscadorXcategorias[pokemonCategoria1.value]
     boton.style.backgroundColor=color;
     CaJadeTextodeBusquedaPokemon.style.outlineColor = color;
   }
   
-
-  let colorPalabras={
-    normal: "#000000",
-    fire: "#000000",
-    water: "#000000",
-    electric: "#000000",
-    grass: "#000000",
-    ice: "#000000",
-    // fighting: "#FFFFFF",
-    // poison: "#FFFFFF",
-    ground: "#000000",
-    flying: "#000000",
-    psychic: "#000000",
-    bug: "#000000",
-    rock: "#000000",
-    ghost: "#000000",
-    dragon: "#F8B838",
-    dark: "#FFFFFF",
-    steel: "#000000",
-    fairy: "#000000",
-  }
-  function colorPalabra(){
-   
-    let color = colorPalabras[pokemonCategoria1.value];
-  // document.querySelectorAll('#Contenedor, #Contenedor *').forEach(el => {
-  //   el.style.color = color;
-  // });
-  document.getElementById('Contenedor').style.color = color
-  }
   function alert(){
-    // var id = document.getElementById("id");
     if(id.value === "" || id.value == 0){
       alerta1.value = true;
       setTimeout(()=>{
@@ -429,8 +343,12 @@ colorPalabra()
       return true
     }
     return false
-
-  }
+}
+  function Inicio() {
+  // Hacer que la página se desplace al inicio
+  document.body.scrollTop = 0; // Para navegadores antiguos
+  document.documentElement.scrollTop = 0; // Para navegadores modernos
+}
   
 </script>
 
@@ -438,18 +356,23 @@ colorPalabra()
 * {
   margin: 0px;
   padding: 0px;
-  box-sizing: 0px;
+  box-sizing: border-box;
 }
-#fondo {
+
+#fondo{
   background-image: url("https://images2.alphacoders.com/135/1351279.png");
-  background-size: 100% 100vh;
-  height: 100vh;
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
+  /* Establece una altura mínima para el contenedor para 
+  ocupar al menos toda la pantalla visible */
+  min-height: 100vh;
 }
 
 .bi {
   width: 5%;
 }
+
 .alert{
   width: 60%;
   height: 10%;
@@ -459,24 +382,18 @@ colorPalabra()
   margin-top: 2%;
   position: fixed;  
   left: 50%;
-  /* top: 2%; */
   transform: translate(-50%);
   z-index: 1000;
   font-family: cursive;
   font-weight: 900;
   font-size: 20px;
 }
-#cambiaColores{
-  /* width: 100%;  */
-  height: 100%;
- 
-  
-}
+
 #Titulo img{
 margin-left: 65%;
-  width: 30%;
-
+width: 30%;
 }
+
 #Buscar button{
   display: flex;
   position: fixed;
@@ -484,10 +401,8 @@ margin-left: 65%;
   top: 90%;  
   transform: translate(-50%, -50%);
   margin-right: 50PX;
-    /* margin-top: 6em; */
   background-color: rgb(34, 47, 233);
   font-size: 40px;
-  /* padding:1%; */
   padding-left: 1%;
   padding-right: 1%;
   border-radius: 20px;
@@ -500,21 +415,17 @@ margin-left: 65%;
   justify-content: center;
   text-align: center;
   align-items: center;
-  /* margin-left: 15%; */
   padding-top: 2%;
   width:100%;
 }
+
 #Buscador input{
   border-radius: 20px;
   height: 40px;
   width: 30%;
-  padding-left: 1%;
   position: relative;
   left: 1.5%;
   font-size: 20px;
-
-/* border-bottom: 3px solid red; */
-/* border-color: blue; */
 outline-color:red; 
 }
 
@@ -524,21 +435,16 @@ outline-color:red;
   font-weight: 900;
  text-decoration: none;
 color:black;
-/* background-color: black; */
 padding: 8px;
 border-radius: 30%;
 text-align: center;
 justify-content: center;
 align-items: center;
-
- 
-
 }
 
-/* #Buscador input:hover {
-  border: 2px solid rgb(15, 192, 228);
-  cursor: pointer;
-} */
+#CaJadeTextodeBusquedaPokemon {
+padding-left: 1.5%;
+}
 
 #boton{
   border-radius: 50px;
@@ -546,11 +452,12 @@ align-items: center;
   height: 40px;
   background-color: red;
   outline: none;
-border: none;
-position: relative;
-right: 55%;
+  border: none;
+  position: relative;
+  right: 55%;
   transition: .5s;
 }
+
 #boton i{
   color: white;
   transition: all .7 ease;
@@ -564,18 +471,21 @@ right: 55%;
   justify-content: center;
   text-align: center;
   align-items: center;
+  width: 100%;
 }
+
 #contenedorPokemon h2{
   text-transform: uppercase;
   font-family: letra2;
-   font-weight: 900;
    text-align: center;
    font-size: 90px;
-  
-   /* text-transform:lowercase; */
 }
+
+#contenedorDatosPrincipales{
+  width: 100%;
+}
+
 #contenedorDatosPrincipales p {
-  /* background-color: black; */
   font-size: 30px;
   justify-content: center;
   text-align: center;
@@ -594,22 +504,22 @@ right: 55%;
   z-index: -100;
   text-align: center;
 }
+
 #AlturaPeso{
-  font-family: letra1;
+  font-family: cursive;
+  font-weight: 900;
 }
 
 #Contenedor {
  display: grid;
  grid-template-columns: repeat(3,1fr);
   margin-top: 1%;
-  /* margin-bottom: 30%; */
   align-items: center; 
-  /* margin-bottom: 2%; */
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 1.3%;
   justify-content: center;
-  width: 80%;
+  width: 90%;
 }
 
 #Habilidades{
@@ -618,19 +528,19 @@ right: 55%;
   grid-gap: 20px;
   width: 100%;
 }
+
 .habilidad{
   display: grid;
   justify-content: center;
   justify-items: center;
   align-items: center;
-  font-family: letra1; 
-   font-size: 25px;
+  font-family:letra1; 
+   font-size: 30px;
 }
+
 .habilidad p {
   padding: 0px;
-  margin: 0;
-/* line-height: 6vh; */
- 
+  margin: 0; 
 }
 
 #Categoria {
@@ -638,24 +548,16 @@ right: 55%;
   gap: 30px;
   justify-content: center;
   text-transform: capitalize;
-
 }
+
 #Categoria h5{
-    font-weight: 900;
     font-family: letra5;
 }
-
 
 #tituloPokemon h3{
    font-family: tatis;
   font-size: 80px;
 }
-#contenedorPokemon img {
-  width: 80%;
-}
-
-
-
 
 @font-face {
   font-family: letra;
@@ -665,12 +567,14 @@ right: 55%;
   font-family: letra1;
   src: url("./GummyBear.ttf");
 }
-
 @font-face {
   font-family: letra2;
   src: url("./Heyam.ttf");
 }
-
+@font-face {
+  font-family: letra3;
+  src: url("./le.ttf");
+}
 @font-face {
   font-family: letra4;
   src: url("./fFaseBulan.ttf");
@@ -679,101 +583,113 @@ right: 55%;
   font-family: letra5;
   src: url("./LittleGroovyDemoRegular.ttf");
 }
-@media screen and (max-width:520px){
+
+@media screen and (max-width:520px){  
+  .alert{
+    width: 80%;
+    text-align: center;
+  }
   
-.alert{
-  width: 80%;
-  text-align: center;
-
-}
-.bi{
-  width: 10%;
-}
-#Buscador input{
-  width: 70%;
-}
-#Buscar button{
-  position: fixed;
-  left: 75%;
-}
-#Titulo img{
-margin-left: 10%;
-  width: 80%;
-
-}
-#Contenedor {
- display: grid;
- grid-template-columns: repeat(1,1fr);
- gap: 30px;
- width: 100%;
- margin-top: 10%;
-
-}
-#contenedorPokemon h2{
-  font-size: 60px;
-}
-
-#contenedorPokemon img{
-  width: 90%;
-}
-#Habilidades{
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-} 
-
-}
-@media screen and (max-width:1032px) and (min-width:530px){
-  /* #Contenedor {
- display: grid;
- grid-template-columns: repeat(2,1fr);
- width: 100%;
-justify-content: center;
-} */
-  #Habilidades{
-   position: relative;
-   left: 30%;
-   top:20%;
-   transition: transform(-50% -50%);  
-  } 
-#contenedorPokemon h2{
-  font-size: 70px
-}
-#tituloPokemon h3{
-   font-family: tatis;
-  font-size: 50px;
-}
-
-  #contenedorPokemon{
-   position: relative;
-   right: 30%;
+  .bi{
+    width: 10%;
   }
-  #contenedorDatosPrincipales{
-    position: relative;
-   right: 10%;
-  }
-#Contenedor {
-grid-template-columns: repeat(2, 1fr);
-padding: 4%;
- }
-.bi{
-  width: 10%;
-}
-#contenedorPokemon h2{
-  font-size: 60px;
-}
-#contenedorPokemon img{
-  width: 90%;
-}
-}
 
-@media screen and (max-width:2440px) and (min-width:1440px){
+  #Buscador input{
+    width: 70%;
+  }
+
+  #Buscar button{
+    position: fixed;
+    left: 75%;
+  }
+
+  #Titulo img{
+  margin-left: 10%;
+  width: 80%;
+  }
+
   #Contenedor {
-padding-top:5%;
- }
- #boton{
-position: relative;
-right: 5%;
+   display: grid;
+   grid-template-columns: repeat(1,1fr);
+   gap: 30px;
+   width: 100%;
+   margin-top: 10%;
+  }
 
-}
+  #contenedorPokemon h2{
+    font-size: 60px;
+  }
+  
+  #contenedorPokemon img{
+    width: 90%;
+  }
+
+  #Habilidades{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  } 
+  }
+
+  @media screen and (max-width:1048px) and (min-width:530px){
+    #Habilidades{
+      margin: 20%;
+     position: relative;
+     left: 8%;
+     transition: transform(-50% -50%);  
+    } 
+
+  #contenedorPokemon h2{
+    font-size: 70px
+  }
+
+  #tituloPokemon h3{
+     font-family: tatis;
+    font-size: 50px;
+  }
+  
+    #contenedorPokemon{
+     position: relative;
+     right: 30%;
+    }
+
+    #contenedorDatosPrincipales{  
+      position: relative;
+     right: 10%;
+    }
+
+  #Contenedor {
+  grid-template-columns: repeat(2, 1fr);
+  padding: 4%;
+  width: 40%;
+   }
+
+  .bi{
+    width: 10%;
+  }
+
+  #contenedorPokemon h2{
+    font-size: 60px;
+  }
+
+  #contenedorPokemon img{
+    width: 90%;
+  }
+  }
+  
+  @media screen and (max-width:2440px) and (min-width:1440px){
+    #Contenedor {
+  margin-top:5%;
+  padding-bottom: 6%;
+  width: 80%;
+   }
+
+   #boton{
+  position: relative;
+  right: 5%;
+  }
+
+  #contenedorPokemon img{
+    width:100% 
+  }
 }
 </style>
