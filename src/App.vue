@@ -55,8 +55,8 @@
     
   <div id="contenedorDatosPrincipales">
           <div id="Categoria">
-            <h5 id="Categoriapokemon1">{{ pokemonCategoria1 }}</h5>
-            <h5 id="Categoria2" >{{ pokemonCategoria2 }}</h5>
+            <h5 id="Categoriapokemon1" ">{{ pokemonCategoria1 }}</h5>
+            <h5 id="Categoria2" v-show="visibilidad">{{ pokemonCategoria2 }}</h5>
           </div>
           <div id="AlturaPeso">
           <p v-show="pokemonAltura" ><strong style="font-weight: bold;"> Altura: </strong>{{ pokemonAltura }}</p>
@@ -215,7 +215,7 @@ let  showBuscador = ref(false);
 let showBuscar =ref(true);
 let alerta1 = ref("");
 let alerta2 = ref("");
-// let visibilidad = ref(false)
+let visibilidad = ref(true)
 
 
 function BuscarPokemon(){
@@ -263,8 +263,10 @@ async function Buscar() {
   if (Pokemon.data.types.length > 1) {
     pokemonCategoria2.value = Pokemon.data.types["1"].type.name;
     console.log(Pokemon.data.types["1"].type.name);
-    // visibilidad.value=true;
-    }
+    visibilidad.value=true;
+    }else{
+     visibilidad.value=false;
+  }
 
   
   estadisticaHabilidad1.value = Pokemon.data.stats[0].base_stat;
@@ -311,29 +313,8 @@ CategoriaSegunda()
     let color= CategoriaxColor[pokemonCategoria1.value]
     document.querySelector('#Categoriapokemon1').style.backgroundColor=color
   }
-
-let CategoriaxColor2 = {
-  normal: "#A8A878",    // Gris oscuro
-  fire: "#F08030",      // Naranja oscuro
-  water: "#6890F0",     // Azul oscuro
-  electric: "#F8D030",  // Amarillo oscuro
-  grass: "#78C850",     // Verde oscuro
-  ice: "#98D8D8",       // Azul hielo oscuro
-  fighting: "#C03028",  // Rojo oscuro
-  poison: "#A040A0",    // Morado oscuro
-  ground: "#E0C068",    // Amarillo oscuro
-  flying: "#A890F0",    // Azul cielo oscuro
-  psychic: "#F85888",   // Rosa oscuro
-  bug: "#A8B820",       // Verde militar
-  rock: "#B8A038",      // Gris rocoso
-  ghost: "#705898",     // Violeta oscuro
-  dragon: "#7038F8",    // Azul dragón oscuro
-  dark: "#705848",      // Marrón oscuro
-  steel
-}
-  
     function CategoriaSegunda(){
-    let color= CategoriaxColor2[pokemonCategoria2.value]
+    let color= CategoriaxColor[pokemonCategoria2.value]
     document.querySelector('#Categoria2').style.backgroundColor=color
   }
   
