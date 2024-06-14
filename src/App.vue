@@ -55,8 +55,8 @@
     
   <div id="contenedorDatosPrincipales">
           <div id="Categoria">
-            <h5>{{ pokemonCategoria1 }}</h5>
-            <h5>{{ pokemonCategoria2 }}</h5>
+            <h5 id="Categoria1">{{ pokemonCategoria1 }}</h5>
+            <h5 id="Categoria2">{{ pokemonCategoria2 }}</h5>
           </div>
           <div id="AlturaPeso">
           <p v-show="pokemonAltura" ><strong style="font-weight: bold;"> Altura: </strong>{{ pokemonAltura }}</p>
@@ -297,6 +297,8 @@ buscadorXcategoria()
   function CategoriaxColorcomparacion(){
     let color= CategoriaxColor[pokemonCategoria1.value]
     cambioColores.style.backgroundColor=color
+    Categoria1.style.backgroundColor=color
+    Categoria2.style.backgroundColor=color
   }
   let buscadorXcategorias={
     normal: "#000000",
