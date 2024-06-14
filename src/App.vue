@@ -591,9 +591,9 @@ padding-left: 1.5%;
   font-size: 80px;
 }
   #Categoriapokemon1, #Categoria2{
-    border: 1px solid black;
+    border: 2px solid black;
       border-radius: 20%;
-    padding:5%
+    padding:3%
   }
 
 @font-face {
