@@ -568,6 +568,7 @@ padding-left: 1.5%;
 }
   #Categoria1 , #Categoria2{
     boder: 1px solid black;
+    padding:5%
   }
 
 @font-face {
