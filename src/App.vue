@@ -302,7 +302,8 @@ CategoriaSegunda()
 
     function CategoriaPrimera(){
     let color= CategoriaxColor[pokemonCategoria1.value]
-    Categoria1.style.backgroundColor=color
+     document.querySelector('#Categoria1').style.backgroundColor=color
+
   }
     function CategoriaSegunda(){
     let color= CategoriaxColor[pokemonCategoria2.value]
