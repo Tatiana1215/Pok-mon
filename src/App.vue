@@ -313,8 +313,29 @@ CategoriaSegunda()
     let color= CategoriaxColor[pokemonCategoria1.value]
     document.querySelector('#Categoriapokemon1').style.backgroundColor=color
   }
+  let CategoriaxColor2 = {
+  normal: "#A8A878",    // Gris oscuro
+  fire: "#F08030",      // Naranja oscuro
+  water: "#6890F0",     // Azul oscuro
+  electric: "#F8D030",  // Amarillo oscuro
+  grass: "#78C850",     // Verde oscuro
+  ice: "#98D8D8",       // Azul hielo oscuro
+  fighting: "#C03028",  // Rojo oscuro
+  poison: "#A040A0",    // Morado oscuro
+  ground: "#E0C068",    // Amarillo oscuro
+  flying: "#A890F0",    // Azul cielo oscuro
+  psychic: "#F85888",   // Rosa oscuro
+  bug: "#A8B820",       // Verde militar
+  rock: "#B8A038",      // Gris rocoso
+  ghost: "#705898",     // Violeta oscuro
+  dragon: "#7038F8",    // Azul dragón oscuro
+  dark: "#705848",      // Marrón oscuro
+  steel: "#B8B8D0",     // Acero
+  fairy: "#EE99AC"      // Rosa pálido oscuro
+};
+
     function CategoriaSegunda(){
-    let color= CategoriaxColor[pokemonCategoria2.value]
+    let color= CategoriaxColor2[pokemonCategoria2.value]
     document.querySelector('#Categoria2').style.backgroundColor=color
   }
   
