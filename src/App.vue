@@ -569,9 +569,9 @@ padding-left: 1.5%;
    font-family: tatis;
   font-size: 80px;
 }
-  #Categoria1 , #Categoria2{
+  #Categoriapokemon1, #Categoria2{
     border: 1px solid black;
-      border-radius: 50%;
+      border-radius: 20%;
     padding:5%
   }
 
