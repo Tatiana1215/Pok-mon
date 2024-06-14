@@ -264,9 +264,7 @@ async function Buscar() {
     pokemonCategoria2.value = Pokemon.data.types["1"].type.name;
     console.log(Pokemon.data.types["1"].type.name);
     // visibilidad.value=true;
-    }else{
-     // visibilidad.value=false;
-  }
+    }
 
   
   estadisticaHabilidad1.value = Pokemon.data.stats[0].base_stat;
