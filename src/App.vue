@@ -269,7 +269,8 @@ async function Buscar() {
 
 CategoriaxColorcomparacion()
 buscadorXcategoria()
-
+CategoriaPrimera()
+CategoriaSegunda()
 
 } 
 
@@ -297,7 +298,14 @@ buscadorXcategoria()
   function CategoriaxColorcomparacion(){
     let color= CategoriaxColor[pokemonCategoria1.value]
     cambioColores.style.backgroundColor=color
+  }
+
+    function CategoriaPrimera(){
+    let color= CategoriaxColor[pokemonCategoria1.value]
     Categoria1.style.backgroundColor=color
+  }
+    function CategoriaSegunda(){
+    let color= CategoriaxColor[pokemonCategoria1.value]
     Categoria2.style.backgroundColor=color
   }
   let buscadorXcategorias={
@@ -672,7 +680,7 @@ padding-left: 1.5%;
   @media screen and (max-width:2440px) and (min-width:1440px){
     #Contenedor {
   margin-top:5%;
-  padding-bottom: 6%;
+  padding-bottom: 10%;
   width: 80%;
    }
 
