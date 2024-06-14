@@ -307,7 +307,7 @@ CategoriaSegunda()
   }
     function CategoriaSegunda(){
     let color= CategoriaxColor[pokemonCategoria2.value]
-    Categoria2.style.backgroundColor=color
+    document.querySelector('#Categoria2').style.backgroundColor=color
   }
   let buscadorXcategorias={
     normal: "#000000",
@@ -681,7 +681,7 @@ padding-left: 1.5%;
   @media screen and (max-width:2440px) and (min-width:1440px){
     #Contenedor {
   margin-top:5%;
-  padding-bottom: 10%;
+  padding-bottom: 11%;
   width: 80%;
    }
 
