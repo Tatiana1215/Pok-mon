@@ -309,6 +309,7 @@ CategoriaSegunda()
     let color= CategoriaxColor[pokemonCategoria2.value]
     document.querySelector('#Categoria2').style.backgroundColor=color
   }
+  
   let buscadorXcategorias={
     normal: "#000000",
     fire: "#3060F0",
