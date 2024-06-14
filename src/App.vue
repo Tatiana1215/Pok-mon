@@ -55,8 +55,8 @@
     
   <div id="contenedorDatosPrincipales">
           <div id="Categoria">
-            <h5 id="Categoriapokemon1" v-show="pokemonCategoria1">{{ pokemonCategoria1 }}</h5>
-            <h5 id="Categoria2" v-show="pokemonCategoria2">{{ pokemonCategoria2 }}</h5>
+            <h5 id="Categoriapokemon1" ">{{ pokemonCategoria1 }}</h5>
+            <h5 id="Categoria2" v-show="visibilidad">{{ pokemonCategoria2 }}</h5>
           </div>
           <div id="AlturaPeso">
           <p v-show="pokemonAltura" ><strong style="font-weight: bold;"> Altura: </strong>{{ pokemonAltura }}</p>
@@ -215,6 +215,7 @@ let  showBuscador = ref(false);
 let showBuscar =ref(true);
 let alerta1 = ref("");
 let alerta2 = ref("");
+let visibilidad = ref(true)
 
 
 function BuscarPokemon(){
@@ -262,7 +263,10 @@ async function Buscar() {
   if (Pokemon.data.types.length > 1) {
     pokemonCategoria2.value = Pokemon.data.types["1"].type.name;
     console.log(Pokemon.data.types["1"].type.name);
-    }
+    visibilidad.value=true;
+    }else{
+     visibilidad.value=false;
+  }
 
   
   estadisticaHabilidad1.value = Pokemon.data.stats[0].base_stat;
