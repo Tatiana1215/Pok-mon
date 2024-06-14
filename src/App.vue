@@ -247,6 +247,7 @@ async function Buscar() {
 
   pokemonPeso.value = Pokemon.data.weight;
   console.log(Pokemon.data.weight);
+  
     pokemonCategoria1.value = Pokemon.data.types["0"].type.name;
     console.log(Pokemon.data.types["0"].type.name);
   // if (Pokemon.data.types["0"]) {
@@ -259,7 +260,7 @@ async function Buscar() {
   //   console.log(Pokemon.data.types["1"].type.name);
   // }
   if (Pokemon.data.types.length > 1) {
-    pokemonCategoria1.value = Pokemon.data.types["1"].type.name;
+    pokemonCategoria2.value = Pokemon.data.types["1"].type.name;
     console.log(Pokemon.data.types["1"].type.name);
     }
 
