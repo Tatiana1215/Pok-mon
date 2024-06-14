@@ -215,7 +215,7 @@ let  showBuscador = ref(false);
 let showBuscar =ref(true);
 let alerta1 = ref("");
 let alerta2 = ref("");
-let visibilidad = ref(false)
+// let visibilidad = ref(false)
 
 
 function BuscarPokemon(){
@@ -263,9 +263,9 @@ async function Buscar() {
   if (Pokemon.data.types.length > 1) {
     pokemonCategoria2.value = Pokemon.data.types["1"].type.name;
     console.log(Pokemon.data.types["1"].type.name);
-    visibilidad.value=true;
+    // visibilidad.value=true;
     }else{
-     visibilidad.value=false;
+     // visibilidad.value=false;
   }
 
   
