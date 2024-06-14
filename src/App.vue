@@ -567,6 +567,7 @@ padding-left: 1.5%;
 }
   #Categoria1 , #Categoria2{
     border: 1px solid black;
+      border-radius: 50%;
     padding:5%
   }
 
