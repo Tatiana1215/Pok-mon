@@ -251,8 +251,7 @@ async function Buscar() {
   if (Pokemon.data.types["0"]) {
     pokemonCategoria1.value = Pokemon.data.types["0"].type.name;
     console.log(Pokemon.data.types["0"].type.name);
-  }
-  if (Pokemon.data.types["0"] && Pokemon.data.types["1"]) {
+  }else if (Pokemon.data.types["0"] && Pokemon.data.types["1"]) {
     pokemonCategoria1.value = Pokemon.data.types["0"].type.name;
     console.log(Pokemon.data.types["0"].type.name);
     pokemonCategoria2.value = Pokemon.data.types["1"].type.name;
