@@ -55,7 +55,7 @@
     
   <div id="contenedorDatosPrincipales">
           <div id="Categoria">
-            <h5 id="Categoria1" v-show="pokemonCategoria1">{{ pokemonCategoria1 }}</h5>
+            <h5 id="Categoriapokemon1" v-show="pokemonCategoria1">{{ pokemonCategoria1 }}</h5>
             <h5 id="Categoria2" v-show="pokemonCategoria2">{{ pokemonCategoria2 }}</h5>
           </div>
           <div id="AlturaPeso">
@@ -307,7 +307,7 @@ CategoriaSegunda()
 
  function CategoriaPrimera(){
     let color= CategoriaxColor[pokemonCategoria1.value]
-    document.querySelector('#Categoria1').style.backgroundColor=color
+    document.querySelector('#Categoriapokemon1').style.backgroundColor=color
   }
     function CategoriaSegunda(){
     let color= CategoriaxColor[pokemonCategoria2.value]
