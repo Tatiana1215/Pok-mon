@@ -251,7 +251,7 @@ async function Buscar() {
   if (Pokemon.data.types["0"]) {
     pokemonCategoria1.value = Pokemon.data.types["0"].type.name;
     console.log(Pokemon.data.types["0"].type.name);
-  }else if (Pokemon.data.types["0"] && Pokemon.data.types["1"]) {
+  }else(Pokemon.data.types["0"] && Pokemon.data.types["1"]) {
     pokemonCategoria1.value = Pokemon.data.types["0"].type.name;
     console.log(Pokemon.data.types["0"].type.name);
     pokemonCategoria2.value = Pokemon.data.types["1"].type.name;
@@ -560,6 +560,9 @@ padding-left: 1.5%;
    font-family: tatis;
   font-size: 80px;
 }
+  #Categoria1 , #Categoria2{
+    boder: 1px solid black;
+  }
 
 @font-face {
   font-family: letra;
