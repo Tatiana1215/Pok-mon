@@ -305,10 +305,9 @@ CategoriaSegunda()
     cambioColores.style.backgroundColor=color
   }
 
-    function CategoriaPrimera(){
+ function CategoriaPrimera(){
     let color= CategoriaxColor[pokemonCategoria1.value]
-     document.querySelector('#Categoria1').style.backgroundColor=color
-
+    document.querySelector('#Categoria1').style.backgroundColor=color
   }
     function CategoriaSegunda(){
     let color= CategoriaxColor[pokemonCategoria2.value]
@@ -567,7 +566,7 @@ padding-left: 1.5%;
   font-size: 80px;
 }
   #Categoria1 , #Categoria2{
-    boder: 1px solid black;
+    border: 1px solid black;
     padding:5%
   }
 
