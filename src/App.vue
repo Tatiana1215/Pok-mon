@@ -332,12 +332,6 @@ buscadorXcategoria()
         alerta1.value = false;
       },3000)
       return true
-    }else if(id.value > 1025){
-      alerta2.value = true;
-      setTimeout(()=>{
-        alerta2.value = false;
-      },3000)
-      return true
     }
     return false
 }
