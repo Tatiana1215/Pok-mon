@@ -55,7 +55,7 @@
     
   <div id="contenedorDatosPrincipales">
           <div id="Categoria">
-            <h5 id="Categoriapokemon1" ">{{ pokemonCategoria1 }}</h5>
+            <h5 id="Categoriapokemon1">{{ pokemonCategoria1 }}</h5>
             <h5 id="Categoria2" >{{ pokemonCategoria2 }}</h5>
           </div>
           <div id="AlturaPeso">
