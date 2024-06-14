@@ -305,7 +305,7 @@ CategoriaSegunda()
     Categoria1.style.backgroundColor=color
   }
     function CategoriaSegunda(){
-    let color= CategoriaxColor[pokemonCategoria1.value]
+    let color= CategoriaxColor[pokemonCategoria2.value]
     Categoria2.style.backgroundColor=color
   }
   let buscadorXcategorias={
