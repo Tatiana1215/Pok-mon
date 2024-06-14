@@ -247,16 +247,19 @@ async function Buscar() {
 
   pokemonPeso.value = Pokemon.data.weight;
   console.log(Pokemon.data.weight);
-
-  if (Pokemon.data.types["0"]) {
-    pokemonCategoria1.value = Pokemon.data.types["0"].type.name;
-    console.log(Pokemon.data.types["0"].type.name);
-  }else(Pokemon.data.types["0"] && Pokemon.data.types["1"]) {
-    pokemonCategoria1.value = Pokemon.data.types["0"].type.name;
-    console.log(Pokemon.data.types["0"].type.name);
-    pokemonCategoria2.value = Pokemon.data.types["1"].type.name;
-    console.log(Pokemon.data.types["1"].type.name);
-  }
+ pokemonCategoria1.value = Pokemon.data.types["0"].type.name;
+  // if (Pokemon.data.types["0"]) {
+  //   pokemonCategoria1.value = Pokemon.data.types["0"].type.name;
+  //   console.log(Pokemon.data.types["0"].type.name);
+  // }else(Pokemon.data.types["0"] && Pokemon.data.types["1"]) {
+  //   pokemonCategoria1.value = Pokemon.data.types["0"].type.name;
+  //   console.log(Pokemon.data.types["0"].type.name);
+  //   pokemonCategoria2.value = Pokemon.data.types["1"].type.name;
+  //   console.log(Pokemon.data.types["1"].type.name);
+  // }
+  if (Pokemon.types.length > 1) {
+      pokemonCategoria2.value = Pokemon.data.types["1"].type.name;
+    }
 
   
   estadisticaHabilidad1.value = Pokemon.data.stats[0].base_stat;
