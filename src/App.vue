@@ -310,10 +310,7 @@ CategoriaSegunda()
     cambioColores.style.backgroundColor=color
   }
 
- function CategoriaPrimera(){
-    let color= CategoriaxColor2[pokemonCategoria1.value]
-    document.querySelector('#Categoriapokemon1').style.backgroundColor=color
-  }
+
   let CategoriaxColor2 = {
   normal: "#A8A878",    // Gris oscuro
   fire: "#F08030",      // Naranja oscuro
@@ -338,6 +335,10 @@ CategoriaSegunda()
     function CategoriaSegunda(){
     let color= CategoriaxColor2[pokemonCategoria2.value]
     document.querySelector('#Categoria2').style.backgroundColor=color
+  } 
+  function CategoriaPrimera(){
+    let color= CategoriaxColor2[pokemonCategoria1.value]
+    document.querySelector('#Categoriapokemon1').style.backgroundColor=color
   }
   
   let buscadorXcategorias={
