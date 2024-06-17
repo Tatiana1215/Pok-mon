@@ -43,7 +43,7 @@
             <q-breadcrumbs-el label="Home" icon="home" />
     </div>
          </a>
-        <input type="search" name="" v-model="id"  @keyup.enter="Buscar"
+        <input type="search" name="" v-model="id" @keyup.enter="Buscar"
          placeholder="Ingrese el Id del Pokémon o el Nombre"id="CaJadeTextodeBusquedaPokemon"  />
          <div >
            <button  id="boton" @click="Buscar" > <i class="fa fa-search" ></i></button>
