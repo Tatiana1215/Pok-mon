@@ -43,7 +43,7 @@
             <q-breadcrumbs-el label="Home" icon="home" />
     </div>
          </a>
-        <input type="search" name="" v-model="id"
+        <input type="search" name="" v-model="id"  @keyup.enter="Buscar"
          placeholder="Ingrese el Id del Pokémon o el Nombre"id="CaJadeTextodeBusquedaPokemon"  />
          <div >
            <button  id="boton" @click="Buscar" > <i class="fa fa-search" ></i></button>
@@ -55,8 +55,8 @@
     
   <div id="contenedorDatosPrincipales">
           <div id="Categoria">
-            <h5>{{ pokemonCategoria1 }}</h5>
-            <h5>{{ pokemonCategoria2 }}</h5>
+            <h5 id="Categoriapokemon1" v-show="pokemonCategoria1">{{ pokemonCategoria1 }}</h5>
+            <h5 id="Categoria2" v-show="pokemonCategoria1" v-if="visibilidadCategorioPokemon">{{ pokemonCategoria2 }}</h5>
           </div>
           <div id="AlturaPeso">
           <p v-show="pokemonAltura" ><strong style="font-weight: bold;"> Altura: </strong>{{ pokemonAltura }}</p>
@@ -213,8 +213,10 @@ let estadisticaHabilidad5 = ref("");
 let estadisticaHabilidad6 = ref("");
 let  showBuscador = ref(false);
 let showBuscar =ref(true);
+let visibilidadCategorioPokemon = ref(true)
 let alerta1 = ref("");
 let alerta2 = ref("");
+// let visibilidad = ref(true)
 
 
 function BuscarPokemon(){
@@ -247,16 +249,24 @@ async function Buscar() {
 
   pokemonPeso.value = Pokemon.data.weight;
   console.log(Pokemon.data.weight);
-
-  if (Pokemon.data.types["0"]) {
+  
     pokemonCategoria1.value = Pokemon.data.types["0"].type.name;
     console.log(Pokemon.data.types["0"].type.name);
-  }
-  if (Pokemon.data.types["0"] && Pokemon.data.types["1"]) {
-    pokemonCategoria1.value = Pokemon.data.types["0"].type.name;
-    console.log(Pokemon.data.types["0"].type.name);
+  // if (Pokemon.data.types["0"]) {
+  //   pokemonCategoria1.value = Pokemon.data.types["0"].type.name;
+  //   console.log(Pokemon.data.types["0"].type.name);
+  // }else if(Pokemon.data.types["0"] && Pokemon.data.types["1"]) {
+  //   pokemonCategoria1.value = Pokemon.data.types["0"].type.name;
+  //   console.log(Pokemon.data.types["0"].type.name);
+  //   pokemonCategoria2.value = Pokemon.data.types["1"].type.name;
+  //   console.log(Pokemon.data.types["1"].type.name);
+  // }
+  if (Pokemon.data.types.length > 1) {
     pokemonCategoria2.value = Pokemon.data.types["1"].type.name;
     console.log(Pokemon.data.types["1"].type.name);
+    visibilidadCategorioPokemon.value=true;
+  }else{
+    visibilidadCategorioPokemon.value=false;
   }
 
   
@@ -269,7 +279,8 @@ async function Buscar() {
 
 CategoriaxColorcomparacion()
 buscadorXcategoria()
-
+CategoriaPrimera()
+CategoriaSegunda()
 
 } 
 
@@ -298,6 +309,37 @@ buscadorXcategoria()
     let color= CategoriaxColor[pokemonCategoria1.value]
     cambioColores.style.backgroundColor=color
   }
+
+ function CategoriaPrimera(){
+    let color= CategoriaxColor2[pokemonCategoria1.value]
+    document.querySelector('#Categoriapokemon1').style.backgroundColor=color
+  }
+  let CategoriaxColor2 = {
+  normal: "#A8A878",    // Gris oscuro
+  fire: "#F08030",      // Naranja oscuro
+  water: "#6890F0",     // Azul oscuro
+  electric: "#F8D030",  // Amarillo oscuro
+  grass: "#78C850",     // Verde oscuro
+  ice: "#98D8D8",       // Azul hielo oscuro
+  fighting: "#C03028",  // Rojo oscuro
+  poison: "#A040A0",    // Morado oscuro
+  ground: "#E0C068",    // Amarillo oscuro
+  flying: "#A890F0",    // Azul cielo oscuro
+  psychic: "#F85888",   // Rosa oscuro
+  bug: "#A8B820",       // Verde militar
+  rock: "#B8A038",      // Gris rocoso
+  ghost: "#705898",     // Violeta oscuro
+  dragon: "#7038F8",    // Azul dragón oscuro
+  dark: "#705848",      // Marrón oscuro
+  steel: "#B8B8D0",     // Acero
+  fairy: "#EE99AC"      // Rosa pálido oscuro
+};
+
+    function CategoriaSegunda(){
+    let color= CategoriaxColor2[pokemonCategoria2.value]
+    document.querySelector('#Categoria2').style.backgroundColor=color
+  }
+  
   let buscadorXcategorias={
     normal: "#000000",
     fire: "#3060F0",
@@ -330,12 +372,6 @@ buscadorXcategoria()
       alerta1.value = true;
       setTimeout(()=>{
         alerta1.value = false;
-      },3000)
-      return true
-    }else if(id.value > 1025){
-      alerta2.value = true;
-      setTimeout(()=>{
-        alerta2.value = false;
       },3000)
       return true
     }
@@ -548,13 +584,19 @@ padding-left: 1.5%;
 }
 
 #Categoria h5{
-    font-family: letra5;
+   font-family: letra5;
+   border: 2px solid black;
+   border-radius: 20%;
+   padding:2%;
+  box-shadow: 10px 10px 10px;
+
 }
 
 #tituloPokemon h3{
    font-family: tatis;
   font-size: 80px;
 }
+
 
 @font-face {
   font-family: letra;
@@ -586,7 +628,7 @@ padding-left: 1.5%;
     width: 80%;
     text-align: center;
   }
-  
+
   .bi{
     width: 10%;
   }
@@ -676,7 +718,7 @@ padding-left: 1.5%;
   @media screen and (max-width:2440px) and (min-width:1440px){
     #Contenedor {
   margin-top:5%;
-  padding-bottom: 6%;
+  padding-bottom: 11%;
   width: 80%;
    }
 
@@ -689,5 +731,6 @@ padding-left: 1.5%;
     width:100% 
   }
 }
+
 
 </style>
